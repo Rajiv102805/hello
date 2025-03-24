@@ -1,0 +1,108 @@
+import java.util.Scanner;
+
+public class ActivitySelection {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        boolean running = true;
+
+        while (running) {
+            System.out.println("Activity Selection Board:");
+            System.out.println("A. Grading System Activity (#4)");
+            System.out.println("B. Ordering System Activity (#6)");
+            System.out.println("C. In-Between Numbers Activity (#7)");
+            System.out.println("Enter your choice (A, B, C): ");
+            char choice = scanner.next().toUpperCase().charAt(0);
+
+            switch (choice) {
+                case 'A':
+                    gradingSystem(scanner);
+                    break;
+                case 'B':
+                    orderingSystem(scanner);
+                    break;
+                case 'C':
+                    inBetweenNumbers(scanner);
+                    break;
+                default:
+                    System.out.println("Invalid choice! Please select again.");
+                    continue;
+            }
+
+            System.out.println("\nDo you want to proceed to Main Menu or End the Program?");
+            System.out.println("1. Proceed to Main Menu");
+            System.out.println("2. End the Program");
+            int option = scanner.nextInt();
+
+            if (option == 2) {
+                running = false;
+                System.out.println("Program Ended. Goodbye!");
+            }
+        }
+
+        scanner.close();
+    }
+
+    
+    public static void gradingSystem(Scanner scanner) {
+        System.out.println("\nGrading System Activity");
+        System.out.print("Enter your grade: ");
+        int grade = scanner.nextInt();
+
+        if (grade >= 90) {
+            System.out.println("Grade: A");
+        } else if (grade >= 80) {
+            System.out.println("Grade: B");
+        } else if (grade >= 70) {
+            System.out.println("Grade: C");
+        } else if (grade >= 60) {
+            System.out.println("Grade: D");
+        } else {
+            System.out.println("Grade: F");
+        }
+    }
+
+    
+    public static void orderingSystem(Scanner scanner) {
+        System.out.println("\nOrdering System Activity");
+        System.out.println("Choose an item:");
+        System.out.println("1. Burger - $5");
+        System.out.println("2. Pizza - $8");
+        System.out.println("3. Soda - $2");
+        int item = scanner.nextInt();
+
+        switch (item) {
+            case 1:
+                System.out.println("You ordered a Burger for $5.");
+                break;
+            case 2:
+                System.out.println("You ordered a Pizza for $8.");
+                break;
+            case 3:
+                System.out.println("You ordered a Soda for $2.");
+                break;
+            default:
+                System.out.println("Invalid selection.");
+        }
+    }
+
+    
+    public static void inBetweenNumbers(Scanner scanner) {
+        System.out.println("\nIn-Between Numbers Activity");
+        System.out.print("Enter the first number: ");
+        int num1 = scanner.nextInt();
+        System.out.print("Enter the second number: ");
+        int num2 = scanner.nextInt();
+
+        if (num1 > num2) {
+            int temp = num1;
+            num1 = num2;
+            num2 = temp;
+        }
+
+        System.out.println("Numbers in between:");
+        for (int i = num1 + 1; i < num2; i++) {
+            System.out.print(i + " ");
+        }
+        System.out.println();
+    }
+}
