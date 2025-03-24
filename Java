@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+public class ActivitySelector {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String choice;
+
+        do {
+            // Display menu
+            System.out.println("Number 1: Activity 1");
+            System.out.println("Number 2: Activity 2");
+            System.out.println("Number 3: Activity 3");
+            System.out.print("Choose an option (1-3): ");
+            int option = scanner.nextInt();
+            scanner.nextLine(); // Consume newline
+
+            // Process choice
+            switch (option) {
+                case 1:
+                    System.out.println("You chose Activity 1!");
+                    break;
+                case 2:
+                    System.out.println("You chose Activity 2!");
+                    break;
+                case 3:
+                    System.out.println("You chose Activity 3!");
+                    break;
+                default:
+                    System.out.println("Invalid choice. Try again.");
+            }
+
+            // Ask if the user wants to try again
+            System.out.print("Try again? (Yes/No): ");
+            choice = scanner.nextLine();
+
+        } while (choice.equalsIgnoreCase("Yes")); // Continue if "Yes"
+
+        System.out.println("Thank you for using the program!");
+        scanner.close();
+    }
+}
