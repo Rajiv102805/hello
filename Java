@@ -3,39 +3,109 @@ import java.util.Scanner;
 public class ActivitySelector {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        String choice;
+        int choice;
+        String continueChoice;
 
         do {
-            // Display menu
-            System.out.println("Number 1: Activity 1");
-            System.out.println("Number 2: Activity 2");
-            System.out.println("Number 3: Activity 3");
+            
+            System.out.println("\n=== Activity Selection Board ===");
+            System.out.println("1. Grading System Activity (#4)");
+            System.out.println("2. Ordering System Activity (#6)");
+            System.out.println("3. In-Between Numbers Activity (#7)");
             System.out.print("Choose an option (1-3): ");
-            int option = scanner.nextInt();
-            scanner.nextLine(); // Consume newline
+            choice = scanner.nextInt();
+            scanner.nextLine();
 
-            // Process choice
-            switch (option) {
+            
+            switch (choice) {
                 case 1:
-                    System.out.println("You chose Activity 1!");
+                    gradingSystem();
                     break;
                 case 2:
-                    System.out.println("You chose Activity 2!");
+                    orderingSystem();
                     break;
                 case 3:
-                    System.out.println("You chose Activity 3!");
+                    inBetweenNumbers();
                     break;
                 default:
-                    System.out.println("Invalid choice. Try again.");
+                    System.out.println("Invalid choice. Please try again.");
             }
 
-            // Ask if the user wants to try again
-            System.out.print("Try again? (Yes/No): ");
-            choice = scanner.nextLine();
+            // Ask user to return to main menu or exit
+            System.out.print("\nProceed to Main Menu? (Yes/No): ");
+            continueChoice = scanner.nextLine();
 
-        } while (choice.equalsIgnoreCase("Yes")); // Continue if "Yes"
+        } while (continueChoice.equalsIgnoreCase("Yes")); // Loop if "Yes"
 
         System.out.println("Thank you for using the program!");
         scanner.close();
+    }
+
+    
+    public static void gradingSystem() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("\nEnter your grade (0-100): ");
+        int grade = scanner.nextInt();
+
+        if (grade >= 90) {
+            System.out.println("Grade: A");
+        } else if (grade >= 80) {
+            System.out.println("Grade: B");
+        } else if (grade >= 70) {
+            System.out.println("Grade: C");
+        } else if (grade >= 60) {
+            System.out.println("Grade: D");
+        } else {
+            System.out.println("Grade: F");
+        }
+    }
+
+    
+    public static void orderingSystem() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("\nOrdering System: Choose a product");
+        System.out.println("1. Apple ($1)");
+        System.out.println("2. Banana ($0.5)");
+        System.out.println("3. Orange ($0.75)");
+        System.out.print("Enter your choice: ");
+        int item = scanner.nextInt();
+
+        System.out.print("Enter quantity: ");
+        int quantity = scanner.nextInt();
+
+        double price = 0;
+        switch (item) {
+            case 1: price = quantity * 1.00; break;
+            case 2: price = quantity * 0.50; break;
+            case 3: price = quantity * 0.75; break;
+            default: System.out.println("Invalid item selected.");
+        }
+
+        if (price > 0) {
+            System.out.println("Total Price: $" + price);
+        }
+    }
+
+    // Activity 3: In-Between Numbers
+    public static void inBetweenNumbers() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("\nEnter first number: ");
+        int num1 = scanner.nextInt();
+        System.out.print("Enter second number: ");
+        int num2 = scanner.nextInt();
+
+        if (num1 < num2) {
+            System.out.println("Numbers in between: ");
+            for (int i = num1 + 1; i < num2; i++) {
+                System.out.print(i + " ");
+            }
+        } else if (num1 > num2) {
+            System.out.println("Numbers in between: ");
+            for (int i = num1 - 1; i > num2; i--) {
+                System.out.print(i + " ");
+            }
+        } else {
+            System.out.println("No numbers in between.");
+        }
     }
 }
