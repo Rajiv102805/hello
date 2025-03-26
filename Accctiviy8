@@ -1,0 +1,184 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        boolean running = true;
+
+        while (running) {
+            System.out.println("Activity Selection Board:\n");
+            System.out.println("A. Grading System Activity (#4)");
+            System.out.println("B. Ordering System Activity (#6)");
+            System.out.println("C. In-Between Numbers Activity (#7)\n");
+            System.out.print("Enter your choice (A, B, C): ");
+            char choice = scanner.next().toUpperCase().charAt(0);
+            scanner.nextLine(); // Consume the newline
+
+            switch (choice) {
+                case 'A':
+                    gradingSystem(scanner);
+                    break;
+                case 'B':
+                    orderingSystem(scanner);
+                    break;
+                case 'C':
+                    inBetweenNumbers(scanner);
+                    break;
+                default:
+                    System.out.println("Invalid choice! Please select again.");
+                    continue;
+            }
+
+            System.out.println("\nDo you want to proceed to Main Menu or End the Program?");
+            System.out.println("1. Proceed to Main Menu");
+            System.out.println("2. End the Program");
+            int option = scanner.nextInt();
+            scanner.nextLine(); // Consume the newline
+
+            if (option == 2) {
+                running = false;
+                System.out.println("Program Ended. Goodbye!");
+            }
+        }
+
+        scanner.close();
+    }
+
+    public static void gradingSystem(Scanner scanner) {
+        System.out.print("Enter your name: ");
+        String name = scanner.nextLine();
+
+        System.out.print("Enter your section: ");
+        String section = scanner.nextLine();
+
+        System.out.print("Enter your prelim: ");
+        double prelim = scanner.nextDouble();
+
+        System.out.print("Enter your midterm: ");
+        double midterm = scanner.nextDouble();
+
+        System.out.print("Enter your semifinals: ");
+        double semifinals = scanner.nextDouble();
+
+        System.out.print("Enter your finals: ");
+        double finals = scanner.nextDouble();
+        scanner.nextLine(); // Consume the newline
+
+        double average = (prelim + midterm + semifinals + finals) / 4;
+        String remarks = (average >= 91) ? "OUTSTANDING" : (average >= 81) ? "VERY GOOD" : "FAILED";
+
+        System.out.println("\nSTUDENT CARD");
+        System.out.println("NAME: " + name + " " + section);
+        System.out.println("AVERAGE: " + average);
+        System.out.println("REMARKS: " + remarks);
+    }
+
+    public static void orderingSystem(Scanner scanner) {
+        System.out.println("1. Orange Juice - P50.00");
+        System.out.println("2. Apple Juice - P50.00");
+        System.out.println("3. Vietnamese Coffee - P120.00");
+        System.out.println("4. Grapes Juice - P50.00");
+        System.out.println("5. Lemon Juice - P50.00");
+
+        System.out.println("--------------------------");
+        System.out.println("-Receipt-");
+
+        System.out.print("Enter your Name: ");
+        String name = scanner.nextLine();
+
+        System.out.print("Enter your Table number: ");
+        int tableNumber = scanner.nextInt();
+        
+        System.out.print("Enter your Order (1-5): ");
+        int choice = scanner.nextInt();
+
+        String order = "";
+        double price = 0;
+
+        switch (choice) {
+            case 1:
+                order = "Orange Juice";
+                price = 50;
+                break;
+            case 2:
+                order = "Apple Juice";
+                price = 50;
+                break;
+            case 3:
+                order = "Vietnamese Coffee";
+                price = 120;
+                break;
+            case 4:
+                order = "Grapes Juice";
+                price = 50;
+                break;
+            case 5:
+                order = "Lemon Juice";
+                price = 50;
+                break;
+            default:
+                System.out.println("Invalid choice! Exiting program.");
+                return;
+        }
+
+        System.out.print("Enter Quantity: ");
+        int quantity = scanner.nextInt();
+
+        System.out.print("Enter your payment amount: P");
+        double payment = scanner.nextDouble();
+        scanner.nextLine(); // Consume the newline
+
+        double totalDue = price * quantity;
+        double discount = (quantity >= 3) ? totalDue * 0.10 : 0;
+        double finalAmount = totalDue - discount;
+        double change = payment - finalAmount;
+
+        if (payment < finalAmount) {
+            System.out.println("Insufficient payment! Please provide more.");
+        } else {
+            System.out.println("\n-Receipt-");
+            System.out.println("NAME: " + name);
+            System.out.println("Table Number: " + tableNumber);
+            System.out.println("Order: " + order);
+            System.out.println("Quantity: " + quantity);
+            System.out.println("Total Due: P" + finalAmount);
+            System.out.println("Payment: P" + payment);
+            System.out.println("Change: P" + change);
+        }
+    }
+
+    public static void inBetweenNumbers(Scanner scanner) {
+        System.out.println("Press 1 - INCREMENT");
+        System.out.println("Press 2 - DECREMENT");
+        System.out.print("Select: ");
+        int choice = scanner.nextInt();
+
+        System.out.print("Enter Initial Value: ");
+        int initial = scanner.nextInt();
+        System.out.print("Enter Final Value: ");
+        int finalValue = scanner.nextInt();
+
+        System.out.println("Press 1 - ODD");
+        System.out.println("Press 2 - EVEN");
+        System.out.print("Select: ");
+        int numberType = scanner.nextInt();
+
+        System.out.println("\nThe selected numbers between " + initial + " and " + finalValue + " are:");
+
+        if (choice == 1) { 
+            for (int i = initial; i <= finalValue; i++) {
+                if ((numberType == 1 && i % 2 != 0) || (numberType == 2 && i % 2 == 0)) {
+                    System.out.println(i);
+                }
+            }
+        } else if (choice == 2) { 
+            for (int i = initial; i >= finalValue; i--) {
+                if ((numberType == 1 && i % 2 != 0) || (numberType == 2 && i % 2 == 0)) {
+                    System.out.println(i);
+                }
+            }
+        } else {
+            System.out.println("Invalid choice! Please enter 1 or 2.");
+        }
+    }
+}
