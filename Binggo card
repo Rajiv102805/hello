@@ -1,0 +1,34 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the number of rows for the Bingo card: ");
+        int rows = scanner.nextInt();
+        
+        System.out.print("Enter the number of columns for the Bingo card: ");
+        int columns = scanner.nextInt();
+        
+        int[][] bingoCard = new int[rows][columns];
+
+        scanner.nextLine();
+        System.out.println("Enter the names for the Bingo card:");
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                System.out.print("Enter names for position (" + (i+1) + "," + (j+1) + "): ");
+                bingoCard[i][j] = scanner.nextInt();
+            }
+        }
+
+        System.out.println("\nBingo Card:");
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                System.out.print(bingoCard[i][j] + " \t");
+            }
+            System.out.println();
+        }
+
+        scanner.close();
+    }
+}
