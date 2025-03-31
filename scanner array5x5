@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        
+        Scanner scanner = new Scanner(System.in);
+
+        
+        int[][] array = new int[5][5];
+
+        
+        System.out.println("Please enter 25 integers to fill the 5x5 array:");
+
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
+                System.out.print("Enter value for position [" + i + "][" + j + "]: ");
+                array[i][j] = scanner.nextInt(); 
+            }
+        }
+
+        
+        System.out.println("\nThe 5x5 array you entered is:");
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
+                System.out.print(array[i][j] + "\t"); 
+            }
+            System.out.println(); 
+        }
+
+        
+        scanner.close();
+    }
+}
