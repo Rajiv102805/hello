@@ -1,0 +1,27 @@
+import java.util.Scanner;
+import java.util.Random;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Random random = new Random();
+
+        System.out.print("Enter how many numbers will be drawn: ");
+        int drawCount = scanner.nextInt();
+
+    
+        System.out.print("Enter the initial value of the range: ");
+        int startRange = scanner.nextInt();
+
+        System.out.print("Enter the final value of the range: ");
+        int endRange = scanner.nextInt();
+
+        System.out.println("\nDrawing the numbers...");
+        for (int i = 1; i <= drawCount; i++) {
+            int drawnNumber = random.nextInt(endRange - startRange + 1) + startRange;
+            System.out.println("Drawn number " + i + ": " + drawnNumber);
+        }
+
+        scanner.close();
+    }
+}
