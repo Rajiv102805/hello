@@ -1,23 +1,49 @@
-public class Activity9_StringArray {
+public class Main {
     public static void main(String[] args) {
         
         String[][] stringArray = {
-            {"A", "B", "C", "D", "E"},
-            {"F", "G", "H", "I", "J"},
-            {"K", "L", "M", "N", "O"},
-            {"P", "Q", "R", "S", "T"},
-            {"U", "V", "W", "X", "Y"}
+            {"Apple", "Banana", "Cat", "Dog", "Egg"},
+            {"Frog", "Goat", "Hat", "Ice", "Jet"},
+            {"Kali", "Lance", "Mmother", "Nigga", "Oscar"},
+            {"Panda", "Queen", "Rat", "Sit", "Touch"},
+            {"Upper", "Victory", "Wency", "X-ray", "Yas"}
         };
 
         
         System.out.println("String 2D Array:");
+          System.out.println("");
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 5; j++) {
                 System.out.print(stringArray[i][j] + " ");
             }
             System.out.println();
+                    System.out.println("");
         }
+        
+        System.out.println("Integer 2D Array:");
+          System.out.println("");
+        int[][] array = new int[5][5];
+        
+    
+         int value = 1;
+        
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
+                array[i][j] = value++;
+            }
+        }
+        
+        
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
+                System.out.print(array[i][j] + "\t");
+            }
+            System.out.println(); 
+        }
+ 
+ 
+ 
+ 
+ 
     }
 }
-
-
