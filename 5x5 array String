@@ -1,0 +1,26 @@
+public class Main {
+    public static void main(String[] args) {
+
+      
+        String[][] array = new String[5][5];
+
+        String[] names = {"Alice", "Bob", "Charlie", "David", "Eve", "Frank", "Grace", "Hannah", "Ivy", "Jack", 
+                          "Kathy", "Liam", "Mona", "Nina", "Oscar", "Paul", "Quincy", "Rita", "Sam", "Tina", 
+                          "Ursula", "Victor", "Wendy", "Xander", "Yara", "Zane"};
+
+        int nameIndex = 0;
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
+                array[i][j] = names[nameIndex++];
+            }
+        }
+
+      
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
+                System.out.print(array[i][j] + "\t"); 
+            }
+            System.out.println(); 
+        }
+    }
+}
