@@ -59,7 +59,6 @@ public class Main {
             }
     }
 
-  
     static void setupGameByMaster() {
         initBoard();
         System.out.print("Enter number of treasures to place: ");
@@ -84,7 +83,6 @@ public class Main {
         System.out.println("\nNow hand the game over to the Player to begin.");
     }
 
-  
     static void playGameAsPlayer() {
         initBoard();
         System.out.print("Enter number of treasures to place randomly: ");
@@ -113,7 +111,7 @@ public class Main {
                     int playAgain = sc.nextInt();
                     if (playAgain == 1) {
                         returnToMainMenu();
-                        return; // Exit from the current method and go back to main menu
+                        return;
                     } else {
                         System.out.println("Thanks for playing!");
                         returnToMainMenu();
@@ -142,13 +140,12 @@ public class Main {
         }
     }
 
-    // Randomly places treasures
     static void placeTreasuresRandomly(int numTreasures) {
-        Random rand = new Random();  // Using java.util.Random
+        Random rand = new Random();
         int placed = 0;
         while (placed < numTreasures) {
-            int r = rand.nextInt(SIZE);  // Random row between 0 and 4
-            int c = rand.nextInt(SIZE);  // Random column between 0 and 4
+            int r = rand.nextInt(SIZE);
+            int c = rand.nextInt(SIZE);
             if (!treasures[r][c]) {
                 treasures[r][c] = true;
                 placed++;
@@ -160,7 +157,6 @@ public class Main {
         System.out.println("\nBoard:");
 
         if (!revealAll) {
-            // Column headers
             System.out.print("   ");
             for (int j = 0; j < SIZE; j++) {
                 System.out.print(j + " ");
@@ -170,7 +166,7 @@ public class Main {
 
         for (int i = 0; i < SIZE; i++) {
             if (!revealAll) {
-                System.out.print(i + "  ");  // Row label
+                System.out.print(i + "  ");
             }
             for (int j = 0; j < SIZE; j++) {
                 if (revealAll && treasures[i][j])
@@ -182,7 +178,6 @@ public class Main {
         }
     }
 
-    // Return to main menu after game
     static void returnToMainMenu() {
         System.out.println("\nReturning to the main menu...\n");
     }
