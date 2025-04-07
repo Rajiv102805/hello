@@ -38,7 +38,6 @@ public class activity11 {
         scanner.close();
     }
 
-    // Method 1: 2D Array
     public static void display2DArray() {
         int[][] matrix = {
             {1, 2, 3},
@@ -54,16 +53,14 @@ public class activity11 {
         }
     }
 
-    // Method 2: Random Function
     public static void generateRandomNumbers() {
         Random rand = new Random();
         System.out.println("Random Numbers:");
         for (int i = 0; i < 5; i++) {
-            System.out.println(rand.nextInt(100)); // Random number from 0 to 99
+            System.out.println(rand.nextInt(100));
         }
     }
 
-    // Method 3: Example Method Function
     public static void methodFunctionExample() {
         int a = 5;
         int b = 10;
@@ -73,3 +70,5 @@ public class activity11 {
 
     public static int addNumbers(int x, int y) {
         return x + y;
+    }
+}
